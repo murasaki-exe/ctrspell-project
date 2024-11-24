@@ -233,3 +233,34 @@ ul {
   transform: translate(-50%, -50%);
   width: 15%;
 }
+
+#story-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+}
+
+.questions {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  font-size: 20px;
+}
+
+fieldset {
+  margin-top: 7px;
+}
+
+legend {
+  font-size: 1.1rem;
+}
+
+label {
+  font-size: 1.2rem;
+}
