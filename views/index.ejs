@@ -54,166 +54,221 @@
 
         <div class="window" id="loginPage">
           <div class="title-bar">
-            <div class="title-bar-text">
-              Enter Password
-            </div>
+            <div class="title-bar-text">Enter Password</div>
 
-            <div class="title-bar-controls">
+            <!-- <div class="title-bar-controls">
               <button aria-label="Close"></button>
-            </div>
+            </div> -->
           </div>
 
           <div class="window-body">
-
             <section class="field-start">
-              <img id="windows-98-logo" src="/visual-resources/windows-98-logo.png" alt="windows-98-logo">
-              <img id="windows-98-logo-text" src="/visual-resources/windows-98-logo-text.png" alt="windows-98-logo">
+              <img
+                id="windows-98-logo"
+                src="/visual-resources/windows-98-logo.png"
+                alt="windows-98-logo"
+              />
+              <img
+                id="windows-98-logo-text"
+                src="/visual-resources/windows-98-logo-text.png"
+                alt="windows-98-logo"
+              />
             </section>
-            
+
             <section class="field-row">
               <label for="text1">Username</label>
-              <input id="text1" type="text">
+              <input id="text1" type="text" />
             </section>
 
             <section class="field-row">
               <label for="text2">Password</label>
-              <input id="text2" type="password" style="margin-left: 8px;">
+              <input id="text2" type="password" style="margin-left: 8px" />
             </section>
-            
+
             <section class="field-end">
-              <button>OK</button>
-              <button>Cancel</button>
+              <button id="ok-login-btn">OK</button>
+              <button id="cancel-login-btn">Cancel</button>
             </section>
           </div>
+
         </div>
+
+        <div class="window" id="offer-popup" style="display: none;">
+          <div class="title-bar">
+            <div class="title-bar-text">CONGRATULATIONS!</div>
+
+            <!-- <div class="title-bar-controls">
+              <button aria-label="Close"></button>
+            </div> -->
+          </div>
+
+          <div class="window-body">
+            <p>CONGRATULATIONS! You have been selected by the administrators of this computer for a one in a lifetime survey!</p>
+
+            <section class="field-end">
+              <button class="accept-btn">ACCEPT</button>
+              <button class="accept-btn">ACCEPT</button>
+            </section>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </body>
 
   <script>
-    // SPLASH SCREEN
-    $(".clickToEnterSplash").on("click", () => {
-      $(".clickToEnterSplash").fadeOut(2000);
-      //TO ADD DONT FORGET
-      /* const bg_audio1 = $("#lobbyMusic").get(0);
+    $(document).ready(function () {
+
+      // SPLASH SCREEN
+      $(".clickToEnterSplash").on("click", () => {
+        $(".clickToEnterSplash").fadeOut(2000);
+        //TO ADD DONT FORGET
+        /* const bg_audio1 = $("#lobbyMusic").get(0);
         bg_audio1.muted = false;
         bg_audio1.play(); */
-    });
+      });
 
-    //HOMEPAGE
-    $(".mainPlayButton").on("click", () => {
-      $(".homeScreen").fadeOut(2000);
-      //TO ADD DONT FORGET
-      /* bg_audio1.muted = true;
+      //HOMEPAGE
+      $(".mainPlayButton").on("click", () => {
+        $(".homeScreen").fadeOut(2000);
+        //TO ADD DONT FORGET
+        /* bg_audio1.muted = true;
       const bg_audio2 = $("#gameMusic",get(0))
       bg_audio2.muted = false;
       bg.audio2.play(); */
-    });
-
-    //MUSIC
-
-    /* bg_audio.volume = 0.13; */
-
-    //ARROW
-    /* const downArrow = docuement.getElementById("downArrowDiv")
-    downArrow.style.setProperty() */
-
-    //SOCIAL LINKS
-    function openTab(url) {
-      window.open(url, "_blank");
-    }
-
-    // CURSOR
-    const cursorOutline = document.querySelector("[data-cursor-outline]");
-    window.addEventListener("mousemove", function (e) {
-      const posX = e.clientX;
-      const posY = e.clientY;
-      cursorOutline.animate(
-        {
-          left: `${posX}px`,
-          top: `${posY}px`,
-        },
-        { duration: 200, fill: "forwards" }
-      );
-    });
-
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
-
-    const colors = ["#e4c1f9"];
-
-    circles.forEach(function (circle, index) {
-      circle.x = 0;
-      circle.y = 0;
-      circle.style.backgroundColor = colors[index % colors.length];
-    });
-
-    window.addEventListener("mousemove", function (e) {
-      coords.x = e.clientX;
-      coords.y = e.clientY;
-    });
-
-    function animateCircles() {
-      let x = coords.x;
-      let y = coords.y;
-
-      circles.forEach(function (circle, index) {
-        circle.style.left = x - 12 + "px";
-        circle.style.top = y - 12 + "px";
-
-        circle.style.scale = (circles.length - index) / circles.length;
-
-        circle.x = x;
-        circle.y = y;
-
-        const nextCircle = circles[index + 1] || circles[0];
-        x += (nextCircle.x - x) * 0.3;
-        y += (nextCircle.y - y) * 0.3;
       });
 
-      requestAnimationFrame(animateCircles);
-    }
+      let username_input = "";
 
-    animateCircles();
+      // getting username
+      $("#ok-login-btn").on("click", () => {
+        $("#loginPage").hide();
+        username_input = $("#text1").val();
+        if (username_input == "") {
+          username_input = "user";
+        }
+        console.log(username_input);
+        setTimeout(function () {
+            $("#offer-popup").fadeIn(10); // Fade in the div over 0.5 seconds
+        }, 3000);
+      });
 
-    // TYPEWRITER EFFECT
-    function sleep(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
+      $("#cancel-login-btn").on("click", () => {
+        $("#text1").val("");
+        $("#text2").val("");
+      });
 
-    const el = document.getElementById("typewriter1");
+      // offer popup
+      $(".accept-btn").on("click", ()=>{
+        $("#offer-popup").hide()
+      })
 
-    let sleepTime = 50;
 
-    let curPhraseIndex1 = 0;
-    let curPhraseIndex2 = 0;
+      //MUSIC
 
-    const writeLoop1 = async () => {
-      let curWord =
-        '"Criticism is the disapproval of people, not for having faults, but for having faults different from your own."';
+      /* bg_audio.volume = 0.13; */
 
-      for (let i = 0; i < curWord.length; i++) {
-        el.innerText = curWord.substring(0, i + 1);
-        await sleep(sleepTime);
+      //ARROW
+      /* const downArrow = docuement.getElementById("downArrowDiv")
+    downArrow.style.setProperty() */
+
+      //SOCIAL LINKS
+      function openTab(url) {
+        window.open(url, "_blank");
       }
 
-      /* await sleep(  sleepTime * 10);
+      // CURSOR
+      const cursorOutline = document.querySelector("[data-cursor-outline]");
+      window.addEventListener("mousemove", function (e) {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        cursorOutline.animate(
+          {
+            left: `${posX}px`,
+            top: `${posY}px`,
+          },
+          { duration: 200, fill: "forwards" }
+        );
+      });
+
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+
+      const colors = ["#e4c1f9"];
+
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+
+          circle.style.scale = (circles.length - index) / circles.length;
+
+          circle.x = x;
+          circle.y = y;
+
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
+        });
+
+        requestAnimationFrame(animateCircles);
+      }
+
+      animateCircles();
+
+      // TYPEWRITER EFFECT
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      const el = document.getElementById("typewriter1");
+
+      let sleepTime = 50;
+
+      let curPhraseIndex1 = 0;
+      let curPhraseIndex2 = 0;
+
+      const writeLoop1 = async () => {
+        let curWord =
+          '"Criticism is the disapproval of people, not for having faults, but for having faults different from your own."';
+
+        for (let i = 0; i < curWord.length; i++) {
+          el.innerText = curWord.substring(0, i + 1);
+          await sleep(sleepTime);
+        }
+
+        /* await sleep(  sleepTime * 10);
 
         for (let i = curWord.length; i > 0; i--) {
           el.innerText = curWord.substring(0, i - 1);
           await sleep(sleepTime);
         } */
 
-      /* await sleep(sleepTime * 5);
+        /* await sleep(sleepTime * 5);
 
         if (curPhraseIndex1 === home_names.length - 1) {
           curPhraseIndex1 = 0;
         } else {
           curPhraseIndex1++;
         } */
-    };
+      };
 
-    /* const writeLoop2 = async () => {
+      /* const writeLoop2 = async () => {
       while (true) {
         let curWord = about_me_terms[curPhraseIndex2];
 
@@ -239,11 +294,11 @@
       }
     }; */
 
-    writeLoop1();
-    /* writeLoop2(); */
+      writeLoop1();
+      /* writeLoop2(); */
 
-    //PROJECTS DIV
-    /* const projects = [
+      //PROJECTS DIV
+      /* const projects = [
       {
         name: "test1",
         description: "testing the first project",
@@ -285,20 +340,23 @@
       projectsContainer.appendChild(card);
     }); */
 
-    //WEATHER RICH PRESENCE
-    //const panel = document.getElementsByClassName("weatherDiv");
-    const temp = document.getElementById("temperature");
+      //WEATHER RICH PRESENCE
+      //const panel = document.getElementsByClassName("weatherDiv");
+      const temp = document.getElementById("temperature");
 
-    const grab = async () => {
-      const request = await fetch(
-        "https://api.open-meteo.com/v1/forecast?latitude=45.4112&longitude=-75.6981&current=temperature_2m,is_day,weather_code,wind_speed_10m"
-      );
+      const grab = async () => {
+        const request = await fetch(
+          "https://api.open-meteo.com/v1/forecast?latitude=45.4112&longitude=-75.6981&current=temperature_2m,is_day,weather_code,wind_speed_10m"
+        );
 
-      const response = await request.json();
+        const response = await request.json();
 
-      temp.innerHTML = `${Math.round(response.current.temperature_2m)}&#176;C`;
-    };
+        temp.innerHTML = `${Math.round(
+          response.current.temperature_2m
+        )}&#176;C`;
+      };
 
-    grab();
+      grab();
+    });
   </script>
 </html>
