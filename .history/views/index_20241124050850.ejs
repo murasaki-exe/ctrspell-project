@@ -21,7 +21,7 @@
     </div>
 
     <!-- BG VID -->
-    <!--     <video class="bg-vid" muted autoplay loop playsinline>
+<!--     <video class="bg-vid" muted autoplay loop playsinline>
       <source src="/visual-resources/biopage-bg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video> -->
@@ -29,15 +29,18 @@
     <!-- BG MUSIC -->
 
     <audio id="lobbyMusic" loop muted>
-      <source
-        src="/audio-resources/Lobby/cinematic-deep-rumble-6418.mp3"
-        type="audio/mpeg"
-      />
+      <source src="/audio-resources/Lobby/cinematic-deep-rumble-6418.mp3" type="audio/mpeg" />
     </audio>
 
     <audio id="gameMusic" loop muted>
+<!--       <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" /> -->
       <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" />
     </audio>
+
+    <audio id="gameMusic" loop muted>
+      <!--       <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" /> -->
+            <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" />
+          </audio>
 
 
     <!-- MUTE BTN -->
@@ -120,30 +123,6 @@
             <p>Loading questions... please wait!</p>
           </div>
         </div>
-
-        <div class="window questions" id="question-1" style="display: none">
-          <div class="title-bar">
-            <div class="title-bar-text">The Survey.</div>
-          </div>
-
-          <fieldset>
-            <legend id="questionText">Do you think the world notices you as much as you notice yourself?</legend>
-            <div class="field-start">
-              <input id="radio1" type="radio" name="fieldset-example2" value="1" checked/>
-              <label for="radio1">No, I’m invisible to everyone.</label>
-            </div>
-            <div class="field-start">
-              <input id="radio2" type="radio" name="fieldset-example2" value="0"/>
-              <label for="radio2">"Sometimes, but it doesn’t really matter."</label>
-            </div>
-            <div class="field-start">
-              <input id="radio3" type="radio" name="fieldset-example2" value="-1"/>
-              <label for="radio3">"I think the world sees more than I realize."</label>
-            </div>
-            <button class="nextQuestionBtn">Next</button>
-          </fieldset>
-
-        </div>
       </div>
     </div>
   </body>
@@ -153,34 +132,29 @@
       const bg_audio1 = $("#lobbyMusic").get(0);
       bg_audio1.volume=.75;
       const bg_audio2 = $("#gameMusic").get(0);
-      const click_effect=$('#click').get(0);
-      click_effect.muted = false;
 
 
       // SPLASH SCREEN
       $(".clickToEnterSplash").on("click", () => {;
-        click_effect.play();
         $(".clickToEnterSplash").fadeOut(2000);
         //TO ADD DONT FORGET
         bg_audio1.muted = false;
-        bg_audio1.play();
+        bg_audio1.play(); 
       });
 
       //HOMEPAGE
       $(".mainPlayButton").on("click", () => {
-         click_effect.play();
         $(".homeScreen").fadeOut(2000);
         //TO ADD DONT FORGET
         bg_audio1.muted = true;
         bg_audio2.muted = false;
-        bg_audio2.play();
+        bg_audio2.play(); 
       });
 
       let username_input = "";
 
       // getting username
       $("#ok-login-btn").on("click", () => {
-        click_effect.play();
         $("#loginPage").hide();
         username_input = $("#text1").val();
         if (username_input == "") {
@@ -193,26 +167,23 @@
       });
 
       $("#cancel-login-btn").on("click", () => {
-        click_effect.play();
         $("#text1").val("");
         $("#text2").val("");
       });
 
       // offer popup
       $(".accept-btn").on("click", () => {
-        click_effect.play();
         $("#offer-popup").hide();
         $("#loading-questions").show();
         setTimeout(function () {
           $("#loading-questions").fadeOut(10);
-          $("#question-1").show();
         }, 3000);
       });
 
       //QUESTIONS
       let endingCounter = 0;
-      let questionsIndex = 0;
-      /* let questionsPhase2 = 0; */
+      let questionsPhase1 = 0;
+      let questionsPhase2 = 0;
 
       const story = {
         questions: [
@@ -228,14 +199,8 @@
             text: "What do you think your expectations say about who you are?",
             options: [
               { text: "They show how much I believe I can achieve.", value: 1 },
-              {
-                text: "They’re just a part of me, neither good nor bad.",
-                value: 0,
-              },
-              {
-                text: "Further from peace—I never find the answers I want.",
-                value: -1,
-              },
+              { text: "They’re just a part of me, neither good nor bad.", value: 0 },
+              { text: "Further from peace—I never find the answers I want.", value: -1 },
             ],
           },
           {
@@ -243,20 +208,14 @@
             options: [
               { text: "Closer to peace—I see things more clearly.", value: 1 },
               { text: "It’s just how my mind works.", value: 0 },
-              {
-                text: "Further from peace—I never find the answers I want.",
-                value: -1,
-              },
+              { text: "Further from peace—I never find the answers I want.", value: -1 },
             ],
           },
           {
             text: "Do you believe missing small joys is a mistake, or just the way life is?",
             options: [
               { text: "A mistake, and I’m learning to notice more.", value: 1 },
-              {
-                text: "It’s just how things are; I can’t notice everything.",
-                value: 0,
-              },
+              { text: "It’s just how things are; I can’t notice everything.", value: 0 },
               { text: "A mistake, but one I make all the time.", value: -1 },
             ],
           },
@@ -312,10 +271,7 @@
             text: "Are assumptions shortcuts, or are they barriers to the truth?",
             options: [
               { text: "They’re barriers, and I try to avoid them.", value: 1 },
-              {
-                text: "Sometimes they’re shortcuts, sometimes barriers.",
-                value: 0,
-              },
+              { text: "Sometimes they’re shortcuts, sometimes barriers.", value: 0 },
               { text: "Barriers, but I still rely on them.", value: -1 },
             ],
           },
@@ -339,24 +295,15 @@
             text: "Is there value in the easy way, or does it make you weaker in the end?",
             options: [
               { text: "Sometimes it’s okay to take the easy way.", value: 1 },
-              {
-                text: "There’s value, but it depends on the situation.",
-                value: 0,
-              },
+              { text: "There’s value, but it depends on the situation.", value: 0 },
               { text: "It makes me weaker, but I take it anyway.", value: -1 },
             ],
           },
           {
             text: "Do you think being critical of yourself helps you grow, or just makes you hurt?",
             options: [
-              {
-                text: "It helps me grow when I channel it properly.",
-                value: 1,
-              },
-              {
-                text: "Both—it’s painful, but it pushes me forward.",
-                value: 0,
-              },
+              { text: "It helps me grow when I channel it properly.", value: 1 },
+              { text: "Both—it’s painful, but it pushes me forward.", value: 0 },
               { text: "It just makes me hurt", value: -1 },
             ],
           },
@@ -376,65 +323,6 @@
           },
         },
       };
-
-      /* function displayQuestion(index) {
-        const current = story.questions[index];
-        console.log(current.text);
-        $("#questionText").text(current.text);
-
-        const choices = $("#choices");
-        choices.empty();
-
-        current.options.forEach((option, i) => {
-          const optionHtml = `
-                <label>
-                    <input type="radio" name="option" value="${option.value}">
-                    ${i + 1}. ${option.text}
-                </label>
-            `;
-          fieldset.append(optionHtml);
-        });
-
-        // Disable the "Next" button until an option is selected
-        $("#next-button").prop("disabled", true);
-      }
-
-      $("#choices").on("change", "input[name='option']", function () {
-        $("#next-button").prop("disabled", false);
-      });
-
-      $("#next-button").on("click", function () {
-        const selectedValue = parseInt($("input[name='option']:checked").val());
-        counter += selectedValue;
-
-        questionIndex++;
-
-        // Check if there are more questions
-        if (questionIndex < story.length) {
-          displayQuestion(questionIndex);
-        } else {
-          displayEnding();
-        }
-      });
-
-      function displayEnding() {
-        let endingText;
-        if (counter > 5) {
-          endingText = "Your journey concludes with a positive ending.";
-        } else if (counter >= 0) {
-          endingText = "Your journey ends in a neutral state.";
-        } else {
-          endingText = "Your story ends with a negative conclusion.";
-        }
-
-        $("#story-container").html(`
-            <div id="ending-screen">
-                <p>${endingText}</p>
-                <button onclick="location.reload()">Restart</button>
-            </div>
-        `);
-      } */
-
       //MUSIC
 
       /* bg_audio.volume = 0.13; */
@@ -612,6 +500,21 @@
 
       //WEATHER RICH PRESENCE
       //const panel = document.getElementsByClassName("weatherDiv");
+      const temp = document.getElementById("temperature");
+
+      const grab = async () => {
+        const request = await fetch(
+          "https://api.open-meteo.com/v1/forecast?latitude=45.4112&longitude=-75.6981&current=temperature_2m,is_day,weather_code,wind_speed_10m"
+        );
+
+        const response = await request.json();
+
+        temp.innerHTML = `${Math.round(
+          response.current.temperature_2m
+        )}&#176;C`;
+      };
+
+      grab();
     });
   </script>
 </html>
