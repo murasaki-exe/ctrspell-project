@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "jquery": "^3.7.1",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  },
+  "scripts": {
+    "build-css": "sass --no-source-map scss/styles.scss public/css/styles.css",
+    "watch-css": "sass --watch --no-source-map scss/styles.scss public/css/styles.css"
+  }
+}

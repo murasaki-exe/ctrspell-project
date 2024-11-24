@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('ezaccCode/header.ejs'); -%>
+
+  <body>
+    <%- include('ezaccCode/navbar.ejs'); -%>
+
+    <!-- SPLASHSCREEN -->
+    <div class="clickToEnterSplash">
+      <div class="initialTextDiv">
+        <h1>クリックどこでもしますよう!</h1>
+        <h3>ｃｌｉｃｋ　　ｔｏ　　ｅｎｔｅｒ～</h3>
+        <img
+          src="/visual-resources/neongif_splashscreen.gif"
+          alt="hewwo"
+          style="width: 150px"
+        />
+      </div>
+    </div>
+
+    <!-- BG VID -->
+    <video class="bg-vid" muted autoplay loop playsinline>
+      <source src="/visual-resources/biopage-bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- BG MUSIC -->
+    <audio id="bg-music" loop muted>
+      <source src="/visual-resources/biopage-sound.mp3" type="audio/mpeg" />
+      your browser ain browsing bruh audio aint working
+    </audio>
+
+    <!-- MUTE BTN -->
+    <button id="muteBtn">Mute</button>
+
+    <!-- CURSOR -->
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- MAIN HOME DIV -->
+    <div class="mainDiv">
+      <a name="home"></a>
+      <div class="main-home-div">
+        <div id="userDiv">
+          <div class="left">
+            <h1 class="userText">
+              This is <br /><span id="typewriter1"></span
+              ><span id="cursor">|</span>
+            </h1>
+
+            <div class="inline-elements">
+              <div id="resume">
+                <button class="resume-button">r e s u m e</button>
+              </div>
+
+              <p class="descriptionText">Student @ Earl of March SS</p>
+            </div>
+          </div>
+
+          <div class="right">
+            <img
+              src="visual-resources/placeholder-icon.png"
+              alt="image-1"
+              class="mainDivImg"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="iconContainer">
+        ｃｏｎｔａｃｔ　ｍｅ　－　
+        <i
+          class="fab fa-youtube"
+          onclick="openTab('https://www.youtube.com/@murasaki-dayo')"
+        ></i>
+        <i
+          class="fab fa-github"
+          onclick="openTab('https://github.com/murasaki-exe')"
+        ></i>
+        <i
+          class="fab fa-instagram"
+          onclick="openTab('https://instagram.com/murasaki.sys')"
+        ></i>
+        <i
+          class="fab fa-linkedin"
+          onclick="openTab('https://www.linkedin.com/in/alvin-kapoor-754586327/')"
+        ></i>
+      </div>
+
+      <!-- <div
+        id="downArrowDiv"
+        class="animate__animated animate__bounce animate__repeat-3 animate__delay-5s"
+      >
+        <a href="#about" id="downArrow">&#10597;</a>
+      </div> -->
+    </div>
+
+    <!-- ABOUT DIV -->
+    <div class="aboutDiv">
+      <a name="about"></a>
+      <div class="about-me-div">
+        <div id="aboutMeContainer">
+          <div class="left">
+            <div id="aboutMeTitle">
+              <h1 class="userText" id="aboutMeText">
+                <span id="typewriter2"></span
+                ><span id="cursor" style="font-size: 50px">|</span>
+              </h1>
+            </div>
+
+            <div id="aboutMeList">
+              <p style="padding-bottom: 20px; color: white; padding-right: 35px;">
+                Hi, I'm Alvin - currently a high schooler, programmer, future
+                cybersec indulgent and avid watcher of football (soccer)!
+                Currently, I'm in Earl of March Secondary High School, hoping to
+                study Computer Science and studying for a cybersecurity
+                certificate!
+                <br /><br />
+                I have a passion for learning and exploring new avenues, which
+                do not just limit to technical aspects! Such as, I'm currently
+                learning Japanese! I love food, gymming, art and video games! If
+                I don't go to a food tour all around the world before I die, I'm
+                gonna be real mad >:&#40;
+              </p>
+            </div>
+
+            <!-- <div id="aboutMeInfo">
+              <h1><u>Languages and Software</u></h1>
+              <p id="aboutMeInfo-p">
+                Well-versed in Python, Javascript - know Java, HTML, CSS - and
+                learning the basics of cybersecurity!
+              </p>
+            </div> -->
+          </div>
+
+          <div class="right">
+            <!-- <div class="weatherContainer">
+              <p style="padding-right: 0; padding-left: 0;">Ottawa</p>
+
+              <div class="weatherDiv">
+                <h2 id="temperature">&mdash;C</h2>
+              </div>
+            </div> -->
+            <div class="img-container">
+              <img src="visual-resources/placeholder-icon.png" class="tom-image" alt="">
+              <div class="bottom-images">
+                <img src="visual-resources/placeholder-icon.png" class="bottom-image" alt="">
+                <img src="visual-resources/placeholder-icon.png" class="bottom-image" alt="">
+              </div>
+            </div>
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS DIV -->
+    <div class="projectsDiv">
+      <a name="projects"></a>
+      <div class="projects-div">
+        <div id="projectsMainDiv">
+          <div id="projectsTitle">
+            <h1 class="userText" id="projectsText" style="padding-left: 16px">
+              <span>Projects</span>
+            </h1>
+          </div>
+
+          <div class="projectsContainer" id="projectsContainer">
+            <div class="projectCard" id="project1" onclick="openTab('https://www.youtube.com/')">
+              <h2 class="projectNames">Project 1</h2>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+                odit aliquid maxime provident distinctio veniam error minus
+                nesciunt! Praesentium, explicabo!
+              </p>
+
+              <div class="softwareUsed">
+                <span class="software">Python</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">Flask</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">HTML-CSS</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">MySQL</span>
+              </div>
+
+              <!-- <div class="projectImage">
+                <img src="visual-resources/noise.png" alt="placeholder-icon" />
+              </div> -->
+            </div>
+
+            <div class="projectCard" id="project1">
+              <h2 class="projectNames">Project 2</h2>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+                odit aliquid maxime provident distinctio veniam error minus
+                nesciunt! Praesentium, explicabo!
+              </p>
+
+              <div class="softwareUsed">
+                <span class="software">Python</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">Flask</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">HTML-CSS</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">MySQL</span>
+              </div>
+
+              <div class="projectImage">
+                <img src="visual-resources/noise.png" alt="placeholder-icon" />
+              </div>
+            </div>
+
+            <div class="projectCard" id="project1">
+              <h2 class="projectNames">Project 3</h2>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+                odit aliquid maxime provident distinctio veniam error minus
+                nesciunt! Praesentium, explicabo!
+              </p>
+
+              <div class="softwareUsed">
+                <span class="software">Python</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">Flask</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">HTML-CSS</span>
+                &nbsp; &nbsp; &nbsp;
+                <span class="software">MySQL</span>
+              </div>
+
+              <div class="projectImage">
+                <img src="visual-resources/noise.png" alt="placeholder-icon" />
+              </div>
+            </div>
+            <!-- <div class="projectCard">
+              <div class="icon">
+                <img
+                  src="visual-resources/placeholder-icon.png"
+                  alt="Project Icon"
+                />
+              </div>
+              <div class="content">
+                <h2>Project Title</h2>
+                <p>
+                  Project description goes here. It should explain what the
+                  project is about.
+                </p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // SPLASH SCREEN
+    $(".clickToEnterSplash").on("click", () => {
+      $(".clickToEnterSplash").fadeOut(2000);
+      const bg_audio = $("#bg-music").get(0);
+      bg_audio.muted = false;
+      bg_audio.play();
+    });
+
+    //MUSIC
+    const muteBtn = document.getElementById("muteBtn");
+    const bg_audio = $("#bg-music").get(0);
+
+    bg_audio.volume = 0.13;
+
+    muteBtn.addEventListener("click", () => {
+      const bg_audio = $("#bg-music").get(0);
+      if (bg_audio.muted) {
+        bg_audio.muted = false;
+        this.innerHTML = "Mute";
+      } else {
+        bg_audio.muted = true;
+        this.innerHTML = "Unmute";
+      }
+    });
+
+    //ARROW
+    /* const downArrow = docuement.getElementById("downArrowDiv")
+    downArrow.style.setProperty() */
+
+    //SOCIAL LINKS
+    function openTab(url) {
+      window.open(url, "_blank");
+    }
+
+    // CURSOR
+    const cursorOutline = document.querySelector("[data-cursor-outline]");
+    window.addEventListener("mousemove", function (e) {
+      const posX = e.clientX;
+      const posY = e.clientY;
+      cursorOutline.animate(
+        {
+          left: `${posX}px`,
+          top: `${posY}px`,
+        },
+        { duration: 200, fill: "forwards" }
+      );
+    });
+
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+
+    const colors = ["#e4c1f9"];
+
+    circles.forEach(function (circle, index) {
+      circle.x = 0;
+      circle.y = 0;
+      circle.style.backgroundColor = colors[index % colors.length];
+    });
+
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+    });
+
+    function animateCircles() {
+      let x = coords.x;
+      let y = coords.y;
+
+      circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+      });
+
+      requestAnimationFrame(animateCircles);
+    }
+
+    animateCircles();
+
+    // TYPEWRITER EFFECT
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    const home_names = ["Alvin Kapoor", "Alvin (⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄"];
+
+    const about_me_terms = ["私のついて", "About me"];
+
+    const el = document.getElementById("typewriter1");
+    const el2 = document.getElementById("typewriter2");
+
+    let sleepTime = 100;
+
+    let curPhraseIndex1 = 0;
+    let curPhraseIndex2 = 0;
+
+    const writeLoop1 = async () => {
+      while (true) {
+        let curWord = home_names[curPhraseIndex1];
+
+        for (let i = 0; i < curWord.length; i++) {
+          el.innerText = curWord.substring(0, i + 1);
+          await sleep(sleepTime);
+        }
+
+        await sleep(sleepTime * 10);
+
+        for (let i = curWord.length; i > 0; i--) {
+          el.innerText = curWord.substring(0, i - 1);
+          await sleep(sleepTime);
+        }
+
+        await sleep(sleepTime * 5);
+
+        if (curPhraseIndex1 === home_names.length - 1) {
+          curPhraseIndex1 = 0;
+        } else {
+          curPhraseIndex1++;
+        }
+      }
+    };
+
+    const writeLoop2 = async () => {
+      while (true) {
+        let curWord = about_me_terms[curPhraseIndex2];
+
+        for (let i = 0; i < curWord.length; i++) {
+          el2.innerText = curWord.substring(0, i + 1);
+          await sleep(sleepTime);
+        }
+
+        await sleep(sleepTime * 20);
+
+        for (let i = curWord.length; i > 0; i--) {
+          el2.innerText = curWord.substring(0, i - 1);
+          await sleep(sleepTime);
+        }
+
+        await sleep(sleepTime * 5);
+
+        if (curPhraseIndex2 === about_me_terms.length - 1) {
+          curPhraseIndex2 = 0;
+        } else {
+          curPhraseIndex2++;
+        }
+      }
+    };
+
+    writeLoop1();
+    writeLoop2();
+
+    //PROJECTS DIV
+    /* const projects = [
+      {
+        name: "test1",
+        description: "testing the first project",
+        icon: "visual-resources/placeholder-icon.png",
+      },
+      {
+        name: "test2",
+        description: "testing the second project",
+        icon: "visual-resources/placeholder-icon.png",
+      },
+      {
+        name: "test3",
+        description: "testing the third project",
+        icon: "visual-resources/placeholder-icon.png",
+      },
+      {
+        name: "test4",
+        description: "testing the fourth project",
+        icon: "visual-resources/placeholder-icon.png",
+      },
+    ];
+
+    const projectsContainer = document.getElementById("projectContainer");
+
+    projects.forEach((project) => {
+      const card = document.createElement("div");
+      card.classList.add("projectCard");
+
+      card.innerHTML = `
+      <div class="icon">
+        <img src="${project.icon}" alt="${project.name} Icon">
+      </div>
+      <div class="content">
+        <h2>${project.name}</h2>
+        <p>${project.description}</p>
+      </div>
+      `;
+
+      projectsContainer.appendChild(card);
+    }); */
+
+    //WEATHER RICH PRESENCE
+    //const panel = document.getElementsByClassName("weatherDiv");
+    const temp = document.getElementById("temperature");
+
+    const grab = async () => {
+      const request = await fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=45.4112&longitude=-75.6981&current=temperature_2m,is_day,weather_code,wind_speed_10m"
+      );
+
+      const response = await request.json();
+
+      temp.innerHTML = `${Math.round(response.current.temperature_2m)}&#176;C`;
+    };
+
+    grab();
+  </script>
+</html>
