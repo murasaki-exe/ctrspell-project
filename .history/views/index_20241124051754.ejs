@@ -36,9 +36,9 @@
       <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" />
     </audio>
 
-    <audio id="click" muted>
-            <source src="/audio-resources/Game/clicky-mouse-click-182496.mp3" type="audio/mpeg" />
+    <audio id="click" src="/audio-resources/Game/clicky-mouse-click-182496.mp3" preload="auto">
           </audio>
+
 
     <!-- MUTE BTN -->
 
@@ -130,13 +130,13 @@
       bg_audio1.volume=.75;
       const bg_audio2 = $("#gameMusic").get(0);
       const click_effect=$('#click').get(0);
-      click_effect.muted = false;
 
 
       // SPLASH SCREEN
       $(".clickToEnterSplash").on("click", () => {;
-        click_effect.play();
-        $(".clickToEnterSplash").fadeOut(2000);
+       $(".clickToEnterSplash").fadeOut(2000);
+       onclick = "doument.getElementById('click_effect').play();">Play
+       it
         //TO ADD DONT FORGET
         bg_audio1.muted = false;
         bg_audio1.play(); 
@@ -144,7 +144,7 @@
 
       //HOMEPAGE
       $(".mainPlayButton").on("click", () => {
-         click_effect.play();
+        click_effect.play();
         $(".homeScreen").fadeOut(2000);
         //TO ADD DONT FORGET
         bg_audio1.muted = true;
@@ -156,7 +156,6 @@
 
       // getting username
       $("#ok-login-btn").on("click", () => {
-        click_effect.play();
         $("#loginPage").hide();
         username_input = $("#text1").val();
         if (username_input == "") {
@@ -169,14 +168,12 @@
       });
 
       $("#cancel-login-btn").on("click", () => {
-        click_effect.play();
         $("#text1").val("");
         $("#text2").val("");
       });
 
       // offer popup
       $(".accept-btn").on("click", () => {
-        click_effect.play();
         $("#offer-popup").hide();
         $("#loading-questions").show();
         setTimeout(function () {

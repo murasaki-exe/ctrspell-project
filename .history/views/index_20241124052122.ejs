@@ -40,6 +40,7 @@
             <source src="/audio-resources/Game/clicky-mouse-click-182496.mp3" type="audio/mpeg" />
           </audio>
 
+
     <!-- MUTE BTN -->
 
     <!-- CURSOR -->
@@ -130,7 +131,6 @@
       bg_audio1.volume=.75;
       const bg_audio2 = $("#gameMusic").get(0);
       const click_effect=$('#click').get(0);
-      click_effect.muted = false;
 
 
       // SPLASH SCREEN
@@ -156,7 +156,6 @@
 
       // getting username
       $("#ok-login-btn").on("click", () => {
-        click_effect.play();
         $("#loginPage").hide();
         username_input = $("#text1").val();
         if (username_input == "") {
@@ -169,14 +168,12 @@
       });
 
       $("#cancel-login-btn").on("click", () => {
-        click_effect.play();
         $("#text1").val("");
         $("#text2").val("");
       });
 
       // offer popup
       $(".accept-btn").on("click", () => {
-        click_effect.play();
         $("#offer-popup").hide();
         $("#loading-questions").show();
         setTimeout(function () {
