@@ -29,14 +29,13 @@
     <!-- BG MUSIC -->
 
     <audio id="lobbyMusic" muted>
-      <source src="/audio-resources/Lobby/unknown-places-223601.mp3" type="audio/mpeg" />
+      <source src="/audio-resources/Lobby/evil-aura-219111.mp3" type="audio/mpeg" />
     </audio>
 
     <audio id="gameMusic" loop muted>
-<!--       <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" /> -->
-      <source src="/audio-resources/Game/room-tone-with-computer-noise-33598.mp3" type="audio/mpeg" />
+      <source src="/visual-resources/sound" type="audio/mpeg" />
+      your browser ain browsing bruh audio aint working
     </audio>
-
 
     <!-- MUTE BTN -->
 
@@ -119,14 +118,12 @@
 
   <script>
     $(document).ready(function () {
-      const bg_audio1 = $("#lobbyMusic").get(0);
-      const bg_audio2 = $("#gameMusic").get(0);
-
 
       // SPLASH SCREEN
-      $(".clickToEnterSplash").on("click", () => {;
+      $(".clickToEnterSplash").on("click", () => {
         $(".clickToEnterSplash").fadeOut(2000);
         //TO ADD DONT FORGET
+         const bg_audio1 = $("#lobbyMusic").get(0);
         bg_audio1.muted = false;
         bg_audio1.play(); 
       });
@@ -135,9 +132,10 @@
       $(".mainPlayButton").on("click", () => {
         $(".homeScreen").fadeOut(2000);
         //TO ADD DONT FORGET
-        bg_audio1.muted = true;
-        bg_audio2.muted = false;
-        bg_audio2.play(); 
+        /* bg_audio1.muted = true;
+      const bg_audio2 = $("#gameMusic",get(0))
+      bg_audio2.muted = false;
+      bg.audio2.play(); */
       });
 
       let username_input = "";
