@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('ezaccCode/header.ejs'); -%>
+
+  <body>
+    <%- include('ezaccCode/navbar.ejs'); -%>
+
+    <!-- SPLASHSCREEN -->
+    <div class="clickToEnterSplash">
+      <div class="initialTextDiv">
+        <h3 id="typewriter1"></h3>
+      </div>
+    </div>
+
+    <!-- BG VID -->
+    <!-- <video class="bg-vid" muted autoplay loop playsinline>
+      <source src="/visual-resources/biopage-bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video> -->
+
+    <!-- BG MUSIC -->
+    <audio id="bg-music" loop muted>
+      <source src="/visual-resources/biopage-sound.mp3" type="audio/mpeg" />
+      your browser ain browsing bruh audio aint working
+    </audio>
+
+    <!-- MUTE BTN -->
+    <button id="muteBtn">Mute</button>
+
+    <!-- CURSOR -->
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- MAIN HOME DIV -->
+    <div class="mainDiv"></div>
+  </body>
+
+  <script>
+    // SPLASH SCREEN
+    $(".clickToEnterSplash").on("click", () => {
+      $(".clickToEnterSplash").fadeOut(2000);
+      const bg_audio = $("#bg-music").get(0);
+      bg_audio.muted = false;
+      bg_audio.play();
+    });
+
+    //MUSIC
+    const muteBtn = document.getElementById("muteBtn");
+    const bg_audio = $("#bg-music").get(0);
+
+    bg_audio.volume = 0.13;
+
+    muteBtn.addEventListener("click", () => {
+      const bg_audio = $("#bg-music").get(0);
+      if (bg_audio.muted) {
+        bg_audio.muted = false;
+        this.innerHTML = "Mute";
+      } else {
+        bg_audio.muted = true;
+        this.innerHTML = "Unmute";
+      }
+    });
+
+    //ARROW
+    /* const downArrow = docuement.getElementById("downArrowDiv")
+    downArrow.style.setProperty() */
+
+    //SOCIAL LINKS
+    function openTab(url) {
+      window.open(url, "_blank");
+    }
+
+    // CURSOR
+    const cursorOutline = document.querySelector("[data-cursor-outline]");
+    window.addEventListener("mousemove", function (e) {
+      const posX = e.clientX;
+      const posY = e.clientY;
+      cursorOutline.animate(
+        {
+          left: `${posX}px`,
+          top: `${posY}px`,
+        },
+        { duration: 200, fill: "forwards" }
+      );
+    });
+
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+
+    const colors = ["#e4c1f9"];
+
+    circles.forEach(function (circle, index) {
+      circle.x = 0;
+      circle.y = 0;
+      circle.style.backgroundColor = colors[index % colors.length];
+    });
+
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+    });
+
+    function animateCircles() {
+      let x = coords.x;
+      let y = coords.y;
+
+      circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+      });
+
+      requestAnimationFrame(animateCircles);
+    }
+
+    animateCircles();
+
+    // TYPEWRITER EFFECT
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    const home_names = [];
+
+    const about_me_terms = [];
+
+    const el = document.getElementById("typewriter1");
+
+    let sleepTime = 100;
+
+    let curPhraseIndex1 = 0;
+    let curPhraseIndex2 = 0;
+
+    const writeLoop1 = async () => {
+      let curWord = "ummm....how did i get here...what happened?";
+
+      for (let i = 0; i < curWord.length; i++) {
+        el.innerText = curWord.substring(0, i + 1);
+        await sleep(sleepTime);
+      }
+
+      /* await sleep(  sleepTime * 10);
+
+        for (let i = curWord.length; i > 0; i--) {
+          el.innerText = curWord.substring(0, i - 1);
+          await sleep(sleepTime);
+        } */
+
+      /* await sleep(sleepTime * 5);
+
+        if (curPhraseIndex1 === home_names.length - 1) {
+          curPhraseIndex1 = 0;
+        } else {
+          curPhraseIndex1++;
+        } */
+    };
+
+    const writeLoop2 = async () => {
+      while (true) {
+        let curWord = about_me_terms[curPhraseIndex2];
+
+        for (let i = 0; i < curWord.length; i++) {
+          el2.innerText = curWord.substring(0, i + 1);
+          await sleep(sleepTime);
+        }
+
+        await sleep(sleepTime * 20);
+
+        for (let i = curWord.length; i > 0; i--) {
+          el2.innerText = curWord.substring(0, i - 1);
+          await sleep(sleepTime);
+        }
+
+        await sleep(sleepTime * 5);
+
+        if (curPhraseIndex2 === about_me_terms.length - 1) {
+          curPhraseIndex2 = 0;
+        } else {
+          curPhraseIndex2++;
+        }
+      }
+    };
+
+    writeLoop1();
+    writeLoop2();
+
+    //PROJECTS DIV
+    /* const projects = [
+      {
+        name: "test1",
+        description: "testing the first project",
+        icon: "visual-resources/placeholder-icon.png",
+      },
+      {
+        name: "test2",
+        description: "testing the second project",
+        icon: "visual-resources/placeholder-icon.png",
+      },
+      {
+        name: "test3",
+        description: "testing the third project",
+        icon: "visual-resources/placeholder-icon.png",
+      },
+      {
+        name: "test4",
+        description: "testing the fourth project",
+        icon: "visual-resources/placeholder-icon.png",
+      },
+    ];
+
+    const projectsContainer = document.getElementById("projectContainer");
+
+    projects.forEach((project) => {
+      const card = document.createElement("div");
+      card.classList.add("projectCard");
+
+      card.innerHTML = `
+      <div class="icon">
+        <img src="${project.icon}" alt="${project.name} Icon">
+      </div>
+      <div class="content">
+        <h2>${project.name}</h2>
+        <p>${project.description}</p>
+      </div>
+      `;
+
+      projectsContainer.appendChild(card);
+    }); */
+
+    //WEATHER RICH PRESENCE
+    //const panel = document.getElementsByClassName("weatherDiv");
+    const temp = document.getElementById("temperature");
+
+    const grab = async () => {
+      const request = await fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=45.4112&longitude=-75.6981&current=temperature_2m,is_day,weather_code,wind_speed_10m"
+      );
+
+      const response = await request.json();
+
+      temp.innerHTML = `${Math.round(response.current.temperature_2m)}&#176;C`;
+    };
+
+    grab();
+  </script>
+</html>
