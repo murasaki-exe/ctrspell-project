@@ -37,13 +37,12 @@
 
     <audio id="gameMusic" loop muted>
       <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" />
-      <!--       <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" /> -->
-      <source
-        src="/audio-resources/Game/room-tone-with-computer-noise-33598.mp3"
-        type="audio/mpeg"
-      />
+
     </audio>
 
+    <audio id="click" muted>
+            <source src="/audio-resources/Game/click.mp3" type="audio/mpeg" />
+          </audio>
 
     <!-- MUTE BTN -->
 
@@ -214,247 +213,23 @@
         }, 3000);
       });
 
-      //QUESTIONS
-      let endingCounter = 0;
-      let questionsIndex = 0;
-      /* let questionsPhase2 = 0; */
-
-
-      /* function displayQuestion(index) {
-        const current = story.questions[index];
-        console.log(current.text);
-        $("#questionText").text(current.text);
-
-        const choices = $("#choices");
-        choices.empty();
-
-        current.options.forEach((option, i) => {
-          const optionHtml = `
-                <label>
-                    <input type="radio" name="option" value="${option.value}">
-                    ${i + 1}. ${option.text}
-                </label>
-            `;
-          fieldset.append(optionHtml);
-        });
-
-        // Disable the "Next" button until an option is selected
-        $("#next-button").prop("disabled", true);
-      }
-
-      $("#choices").on("change", "input[name='option']", function () {
-        $("#next-button").prop("disabled", false);
-      });
-
-      $("#next-button").on("click", function () {
-        const selectedValue = parseInt($("input[name='option']:checked").val());
-        counter += selectedValue;
-
-        questionIndex++;
-
-        // Check if there are more questions
-        if (questionIndex < story.length) {
-          displayQuestion(questionIndex);
-        } else {
-          displayEnding();
-        }
-      });
-
-      function displayEnding() {
-        let endingText;
-        if (counter > 5) {
-          endingText = "Your journey concludes with a positive ending.";
-        } else if (counter >= 0) {
-          endingText = "Your journey ends in a neutral state.";
-        } else {
-          endingText = "Your story ends with a negative conclusion.";
-        }
-
-        $("#story-container").html(`
-            <div id="ending-screen">
-                <p>${endingText}</p>
-                <button onclick="location.reload()">Restart</button>
-            </div>
-        `);
-      } */
-
-      //MUSIC
-
-      /* bg_audio.volume = 0.13; */
-
-      //ARROW
-      /* const downArrow = docuement.getElementById("downArrowDiv")
-    downArrow.style.setProperty() */
-
-      //SOCIAL LINKS
-      function openTab(url) {
-        window.open(url, "_blank");
-      }
-
-      // CURSOR
-      const cursorOutline = document.querySelector("[data-cursor-outline]");
-      window.addEventListener("mousemove", function (e) {
-        const posX = e.clientX;
-        const posY = e.clientY;
-        cursorOutline.animate(
-          {
-            left: `${posX}px`,
-            top: `${posY}px`,
-          },
-          { duration: 200, fill: "forwards" }
-        );
-      });
-
-      const coords = { x: 0, y: 0 };
-      const circles = document.querySelectorAll(".circle");
-
-      const colors = ["#e4c1f9"];
-
-      circles.forEach(function (circle, index) {
-        circle.x = 0;
-        circle.y = 0;
-        circle.style.backgroundColor = colors[index % colors.length];
-      });
-
-      window.addEventListener("mousemove", function (e) {
-        coords.x = e.clientX;
-        coords.y = e.clientY;
-      });
-
-      function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
-
-        circles.forEach(function (circle, index) {
-          circle.style.left = x - 12 + "px";
-          circle.style.top = y - 12 + "px";
-
-          circle.style.scale = (circles.length - index) / circles.length;
-
-          circle.x = x;
-          circle.y = y;
-
-          const nextCircle = circles[index + 1] || circles[0];
-          x += (nextCircle.x - x) * 0.3;
-          y += (nextCircle.y - y) * 0.3;
-        });
-
-        requestAnimationFrame(animateCircles);
-      }
-
-      animateCircles();
-
       // TYPEWRITER EFFECT
       function sleep(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
-
       const el = document.getElementById("typewriter1");
-
       let sleepTime = 50;
-
       let curPhraseIndex1 = 0;
       let curPhraseIndex2 = 0;
-
       const writeLoop1 = async () => {
         let curWord =
           '"Criticism is the disapproval of people, not for having faults, but for having faults different from your own."';
-
         for (let i = 0; i < curWord.length; i++) {
           el.innerText = curWord.substring(0, i + 1);
           await sleep(sleepTime);
         }
-
-        /* await sleep(  sleepTime * 10);
-
-        for (let i = curWord.length; i > 0; i--) {
-          el.innerText = curWord.substring(0, i - 1);
-          await sleep(sleepTime);
-        } */
-
-        /* await sleep(sleepTime * 5);
-
-        if (curPhraseIndex1 === home_names.length - 1) {
-          curPhraseIndex1 = 0;
-        } else {
-          curPhraseIndex1++;
-        } */
-      };
-
-      /* const writeLoop2 = async () => {
-      while (true) {
-        let curWord = about_me_terms[curPhraseIndex2];
-
-        for (let i = 0; i < curWord.length; i++) {
-          el2.innerText = curWord.substring(0, i + 1);
-          await sleep(sleepTime);
-        }
-
-        await sleep(sleepTime * 20);
-
-        for (let i = curWord.length; i > 0; i--) {
-          el2.innerText = curWord.substring(0, i - 1);
-          await sleep(sleepTime);
-        }
-
-        await sleep(sleepTime * 5);
-
-        if (curPhraseIndex2 === about_me_terms.length - 1) {
-          curPhraseIndex2 = 0;
-        } else {
-          curPhraseIndex2++;
-        }
       }
-    }; */
-
       writeLoop1();
-      /* writeLoop2(); */
-
-      //PROJECTS DIV
-      /* const projects = [
-      {
-        name: "test1",
-        description: "testing the first project",
-        icon: "visual-resources/placeholder-icon.png",
-      },
-      {
-        name: "test2",
-        description: "testing the second project",
-        icon: "visual-resources/placeholder-icon.png",
-      },
-      {
-        name: "test3",
-        description: "testing the third project",
-        icon: "visual-resources/placeholder-icon.png",
-      },
-      {
-        name: "test4",
-        description: "testing the fourth project",
-        icon: "visual-resources/placeholder-icon.png",
-      },
-    ];
-
-    const projectsContainer = document.getElementById("projectContainer");
-
-    projects.forEach((project) => {
-      const card = document.createElement("div");
-      card.classList.add("projectCard");
-
-      card.innerHTML = `
-      <div class="icon">
-        <img src="${project.icon}" alt="${project.name} Icon">
-      </div>
-      <div class="content">
-        <h2>${project.name}</h2>
-        <p>${project.description}</p>
-      </div>
-      `;
-
-      projectsContainer.appendChild(card);
-    }); */
-
-      //WEATHER RICH PRESENCE
-      //const panel = document.getElementsByClassName("weatherDiv");
     });
   </script>
 </html>
