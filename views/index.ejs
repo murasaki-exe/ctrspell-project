@@ -14,11 +14,11 @@
     </div>
 
     <!-- SPLASHSCREEN -->
-    <!-- <div class="clickToEnterSplash">
+    <div class="clickToEnterSplash">
       <div class="initialTextDiv">
         <h3 id="typewriter1"></h3>
       </div>
-    </div> -->
+    </div>
 
     <!-- BG VID -->
     <!-- <video class="bg-vid" muted autoplay loop playsinline>
@@ -27,8 +27,13 @@
     </video> -->
 
     <!-- BG MUSIC -->
-    <audio id="bg-music" loop muted>
-      <source src="/visual-resources/biopage-sound.mp3" type="audio/mpeg" />
+    <audio id="lobbyMusic" muted>
+      <source src="/visual-resources/sound" type="audio/mpeg" />
+      your browser ain browsing bruh audio aint working
+    </audio>
+
+    <audio id="gameMusic" loop muted>
+      <source src="/visual-resources/sound" type="audio/mpeg" />
       your browser ain browsing bruh audio aint working
     </audio>
 
@@ -52,36 +57,31 @@
   </body>
 
   <script>
-
-    //
     // SPLASH SCREEN
     let clickCountSplash = 0;
     $(".clickToEnterSplash").on("click", () => {
       clickCountSplash++;
       if (clickCountSplash == 2) {
         $(".clickToEnterSplash").fadeOut(2000);
-        const bg_audio = $("#bg-music").get(0);
-        bg_audio.muted = false;
-        bg_audio.play();
+        const bg_audio1 = $("#lobbyMusic").get(0);
+        bg_audio1.muted = false;
+        bg_audio1.play();
       }
     });
+
+    //HOMEPAGE
+    $(".mainPlayButton").on("click", () => {
+      $(".homeScreen").fadeOut(2000);
+      bg_audio1.muted = true;
+      const bg_audio2 = $("#gameMusic",get(0))
+      bg_audio2.muted = false;
+      bg.audio2.play();
+    })
 
     //MUSIC
-    const muteBtn = document.getElementById("muteBtn");
-    const bg_audio = $("#bg-music").get(0);
 
-    bg_audio.volume = 0.13;
+    /* bg_audio.volume = 0.13; */
 
-    muteBtn.addEventListener("click", () => {
-      const bg_audio = $("#bg-music").get(0);
-      if (bg_audio.muted) {
-        bg_audio.muted = false;
-        this.innerHTML = "Mute";
-      } else {
-        bg_audio.muted = true;
-        this.innerHTML = "Unmute";
-      }
-    });
 
     //ARROW
     /* const downArrow = docuement.getElementById("downArrowDiv")
@@ -150,10 +150,6 @@
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
-    const home_names = [];
-
-    const about_me_terms = [];
-
     const el = document.getElementById("typewriter1");
 
     let sleepTime = 100;
@@ -185,7 +181,7 @@
         } */
     };
 
-    const writeLoop2 = async () => {
+    /* const writeLoop2 = async () => {
       while (true) {
         let curWord = about_me_terms[curPhraseIndex2];
 
@@ -209,7 +205,7 @@
           curPhraseIndex2++;
         }
       }
-    };
+    }; */
 
     writeLoop1();
     /* writeLoop2(); */
