@@ -14,5 +14,11 @@
   "scripts": {
     "build-css": "sass --no-source-map scss/styles.scss public/css/styles.css",
     "watch-css": "sass --watch --no-source-map scss/styles.scss public/css/styles.css"
-  }
+  },
+  "name": "ctrspell-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
