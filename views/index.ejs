@@ -5,6 +5,14 @@
   <body>
     <%- include('ezaccCode/navbar.ejs'); -%>
 
+    <!-- PLAY SCREEN -->
+    <div class="homeScreen">
+      <div class="gameTitle">
+        <h1>TITLE</h1>
+        <button class="mainPlayButton">ＰＬＡＹ</button>
+      </div>
+    </div>
+
     <!-- SPLASHSCREEN -->
     <div class="clickToEnterSplash">
       <div class="initialTextDiv">
@@ -35,12 +43,18 @@
   </body>
 
   <script>
+
+    //
     // SPLASH SCREEN
+    let clickCountSplash = 0;
     $(".clickToEnterSplash").on("click", () => {
-      $(".clickToEnterSplash").fadeOut(2000);
-      const bg_audio = $("#bg-music").get(0);
-      bg_audio.muted = false;
-      bg_audio.play();
+      clickCountSplash++;
+      if (clickCountSplash == 2) {
+        $(".clickToEnterSplash").fadeOut(2000);
+        const bg_audio = $("#bg-music").get(0);
+        bg_audio.muted = false;
+        bg_audio.play();
+      }
     });
 
     //MUSIC
@@ -139,7 +153,7 @@
     let curPhraseIndex2 = 0;
 
     const writeLoop1 = async () => {
-      let curWord = "ummm....how did i get here...what happened?";
+      let curWord = "ummm.... how did i get here... what happened?";
 
       for (let i = 0; i < curWord.length; i++) {
         el.innerText = curWord.substring(0, i + 1);
@@ -189,7 +203,7 @@
     };
 
     writeLoop1();
-    writeLoop2();
+    /* writeLoop2(); */
 
     //PROJECTS DIV
     /* const projects = [
