@@ -29,14 +29,14 @@
     <!-- BG MUSIC -->
 
     <audio id="lobbyMusic" muted>
-      <source src="/audio-resources/Lobby/unknown-places-223601.mp3" type="audio/mpeg" />
+      <source src="ctrspell-project/public/audio-resources\Lobby\cinematic-deep-rumble-6418.mp3" type="audio/mp3" />
+      your browser ain browsing bruh audio aint working
     </audio>
 
     <audio id="gameMusic" loop muted>
-<!--       <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" /> -->
-      <source src="/audio-resources/Game/room-tone-with-computer-noise-33598.mp3" type="audio/mpeg" />
+      <source src="/visual-resources/sound" type="audio/mpeg" />
+      your browser ain browsing bruh audio aint working
     </audio>
-
 
     <!-- MUTE BTN -->
 
@@ -51,6 +51,7 @@
       <img src="/visual-resources/bezel.png" id="bezel" />
 
       <div id="content">
+
         <div class="window" id="loginPage">
           <div class="title-bar">
             <div class="title-bar-text">Enter Password</div>
@@ -89,9 +90,10 @@
               <button id="cancel-login-btn">Cancel</button>
             </section>
           </div>
+
         </div>
 
-        <div class="window" id="offer-popup" style="display: none">
+        <div class="window" id="offer-popup" style="display: none;">
           <div class="title-bar">
             <div class="title-bar-text">CONGRATULATIONS!</div>
 
@@ -101,37 +103,28 @@
           </div>
 
           <div class="window-body">
-            <p>
-              CONGRATULATIONS! You have been selected by the administrators of
-              this computer for a one in a lifetime survey!
-            </p>
+            <p>CONGRATULATIONS! You have been selected by the administrators of this computer for a one in a lifetime survey!</p>
 
             <section class="field-end">
-              <button class="accept-btn">ＡＣＣＥＰＴ</button>
-              <button class="accept-btn">ＡＣＣＥＰＴ</button>
+              <button class="accept-btn">ACCEPT</button>
+              <button class="accept-btn">ACCEPT</button>
             </section>
           </div>
+
         </div>
 
-        <div class="window" id="loading-questions" style="display: none">
-          <div class="window-body">
-            <p>Loading questions... please wait!</p>
-          </div>
-        </div>
       </div>
     </div>
   </body>
 
   <script>
     $(document).ready(function () {
-      const bg_audio1 = $("#lobbyMusic").get(0);
-      const bg_audio2 = $("#gameMusic").get(0);
-
 
       // SPLASH SCREEN
-      $(".clickToEnterSplash").on("click", () => {;
+      $(".clickToEnterSplash").on("click", () => {
         $(".clickToEnterSplash").fadeOut(2000);
         //TO ADD DONT FORGET
+         const bg_audio1 = $("#lobbyMusic").get(0);
         bg_audio1.muted = false;
         bg_audio1.play(); 
       });
@@ -140,9 +133,10 @@
       $(".mainPlayButton").on("click", () => {
         $(".homeScreen").fadeOut(2000);
         //TO ADD DONT FORGET
-        bg_audio1.muted = true;
-        bg_audio2.muted = false;
-        bg_audio2.play(); 
+        /* bg_audio1.muted = true;
+      const bg_audio2 = $("#gameMusic",get(0))
+      bg_audio2.muted = false;
+      bg.audio2.play(); */
       });
 
       let username_input = "";
@@ -156,7 +150,7 @@
         }
         console.log(username_input);
         setTimeout(function () {
-          $("#offer-popup").fadeIn(10); // Fade in the div over 0.5 seconds
+            $("#offer-popup").fadeIn(10); // Fade in the div over 0.5 seconds
         }, 3000);
       });
 
@@ -166,157 +160,11 @@
       });
 
       // offer popup
-      $(".accept-btn").on("click", () => {
-        $("#offer-popup").hide();
-        $("#loading-questions").show();
-        setTimeout(function () {
-          $("#loading-questions").fadeOut(10);
-        }, 3000);
-      });
+      $(".accept-btn").on("click", ()=>{
+        $("#offer-popup").hide()
+      })
 
-      //QUESTIONS
-      let endingCounter = 0;
-      let questionsPhase1 = 0;
-      let questionsPhase2 = 0;
 
-      const story = {
-        questions: [
-          {
-            text: "Do you think the world notices you as much as you notice yourself?",
-            options: [
-              { text: "I think the world sees more than I realize.", value: 1 },
-              { text: "Sometimes, but it doesn’t really matter.", value: 0 },
-              { text: "No, I\’m invisible to everyone.", value: -1 },
-            ],
-          },
-          {
-            text: "What do you think your expectations say about who you are?",
-            options: [
-              { text: "They show how much I believe I can achieve.", value: 1 },
-              { text: "They’re just a part of me, neither good nor bad.", value: 0 },
-              { text: "Further from peace—I never find the answers I want.", value: -1 },
-            ],
-          },
-          {
-            text: "When you overanalyze a moment, are you closer to the truth or further from peace?",
-            options: [
-              { text: "Closer to peace—I see things more clearly.", value: 1 },
-              { text: "It’s just how my mind works.", value: 0 },
-              { text: "Further from peace—I never find the answers I want.", value: -1 },
-            ],
-          },
-          {
-            text: "Do you believe missing small joys is a mistake, or just the way life is?",
-            options: [
-              { text: "A mistake, and I’m learning to notice more.", value: 1 },
-              { text: "It’s just how things are; I can’t notice everything.", value: 0 },
-              { text: "A mistake, but one I make all the time.", value: -1 },
-            ],
-          },
-          {
-            text: "If you lost something today, would you know how much it mattered?",
-            options: [
-              { text: "Maybe I’d know right away.", value: 1 },
-              { text: "Maybe, but only after some time.", value: 0 },
-              { text: "Not until it was gone forever.", value: -1 },
-            ],
-          },
-          {
-            text: "Is it easier to trust your instincts, or to doubt them completely?",
-            options: [
-              { text: "Trust them—they’re usually right.", value: 1 },
-              { text: "It depends on the situation.", value: 0 },
-              { text: "Doubt them—I can’t trust myself.", value: -1 },
-            ],
-          },
-          {
-            text: "When your inner voice speaks, do you listen, or do you argue with it?",
-            options: [
-              { text: "I try to listen and understand.", value: 1 },
-              { text: "I listen sometimes, but not always.", value: 0 },
-              { text: "I argue—I can’t stand what it says.", value: -1 },
-            ],
-          },
-          {
-            text: "Have you ever wondered if overthinking is your mind’s way of protecting itself?",
-            options: [
-              { text: "It’s trying to help me, even if it hurts.", value: 1 },
-              { text: "Maybe, but it doesn’t help much.", value: 0 },
-              { text: "No, it’s just something I can’t control.", value: -1 },
-            ],
-          },
-          {
-            text: "Do you believe the harder path is always the right one?",
-            options: [
-              { text: "Often, the hard path is where I grow most.", value: 1 },
-              { text: "Not always—sometimes the easy way is fine.", value: 0 },
-              { text: "No, it’s just punishment for being weak.", value: -1 },
-            ],
-          },
-          {
-            text: "When was the last time you let yourself enjoy something without questioning why?",
-            options: [
-              { text: "Recently—I’m learning to let go", value: 1 },
-              { text: "Sometimes, but it doesn’t happen often.", value: 0 },
-              { text: "I can’t remember—it’s been too long.", value: -1 },
-            ],
-          },
-          {
-            text: "Are assumptions shortcuts, or are they barriers to the truth?",
-            options: [
-              { text: "They’re barriers, and I try to avoid them.", value: 1 },
-              { text: "Sometimes they’re shortcuts, sometimes barriers.", value: 0 },
-              { text: "Barriers, but I still rely on them.", value: -1 },
-            ],
-          },
-          {
-            text: "What happens when you assume others’ thoughts about you—are they ever kind?",
-            options: [
-              { text: "Yes, they can be kind.", value: 1 },
-              { text: "Sometimes, but I don’t trust them.", value: 0 },
-              { text: "No, they’re cruel.", value: -1 },
-            ],
-          },
-          {
-            text: "Does doubt hold you back, or does it keep you safe?",
-            options: [
-              { text: "It keeps me safe when I need it.", value: 1 },
-              { text: "Both—it’s a double-edged sword.", value: 0 },
-              { text: "It holds me back—I feel trapped.", value: -1 },
-            ],
-          },
-          {
-            text: "Is there value in the easy way, or does it make you weaker in the end?",
-            options: [
-              { text: "Sometimes it’s okay to take the easy way.", value: 1 },
-              { text: "There’s value, but it depends on the situation.", value: 0 },
-              { text: "It makes me weaker, but I take it anyway.", value: -1 },
-            ],
-          },
-          {
-            text: "Do you think being critical of yourself helps you grow, or just makes you hurt?",
-            options: [
-              { text: "It helps me grow when I channel it properly.", value: 1 },
-              { text: "Both—it’s painful, but it pushes me forward.", value: 0 },
-              { text: "It just makes me hurt", value: -1 },
-            ],
-          },
-        ],
-        endings: {
-          positive: {
-            text: "Your journey concludes with a positive ending.",
-            options: [],
-          },
-          neutral: {
-            text: "Your journey ends in a neutral state.",
-            options: [],
-          },
-          negative: {
-            text: "Your story ends with a negative conclusion.",
-            options: [],
-          },
-        },
-      };
       //MUSIC
 
       /* bg_audio.volume = 0.13; */
