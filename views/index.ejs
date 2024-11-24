@@ -8,7 +8,7 @@
     <!-- PLAY SCREEN -->
     <div class="homeScreen">
       <div class="gameTitle">
-        <h1>TITLE</h1>
+        <h1>THE SURVEY.</h1>
         <button class="mainPlayButton">ＰＬＡＹ</button>
       </div>
     </div>
@@ -20,11 +20,10 @@
       </div>
     </div>
 
-    <!-- BG VID -->
-    <!--     <video class="bg-vid" muted autoplay loop playsinline>
-      <source src="/visual-resources/biopage-bg.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video> -->
+    <div class="endScreen">
+      <h4 id="endText"></h4>
+      <button class="replayButton">ＲＥＰＬＡＹ</button>
+    </div>
 
     <!-- BG MUSIC -->
 
@@ -36,13 +35,19 @@
     </audio>
 
     <audio id="gameMusic" loop muted>
-      <source src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3" type="audio/mpeg" />
-
+      <source
+        src="/audio-resources/Game/quartz-kitchen-clock-ticking-60-seconds-253100.mp3"
+        type="audio/mpeg"
+      />
     </audio>
 
     <audio id="click" muted>
-            <source src="/audio-resources/Game/click.mp3" type="audio/mpeg" />
-          </audio>
+      <source src="/audio-resources/Game/click.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="start-up" muted>
+      <source src="/audio-resources/Game/NOTIFY.mp3" type="audio/mpeg" />
+    </audio>
 
     <!-- MUTE BTN -->
 
@@ -131,22 +136,667 @@
           </div>
 
           <fieldset>
-            <legend id="questionText">Do you think the world notices you as much as you notice yourself?</legend>
+            <legend id="questionText">
+              Do you think the world notices you as much as you notice yourself?
+            </legend>
             <div class="field-start">
-              <input id="radio1" type="radio" name="fieldset-example2" value="1" checked/>
+              <input
+                id="radio1"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
               <label for="radio1">No, I’m invisible to everyone.</label>
             </div>
             <div class="field-start">
-              <input id="radio2" type="radio" name="fieldset-example2" value="0"/>
-              <label for="radio2">"Sometimes, but it doesn’t really matter."</label>
+              <input
+                id="radio2"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio2"
+                >"Sometimes, but it doesn’t really matter."</label
+              >
             </div>
             <div class="field-start">
-              <input id="radio3" type="radio" name="fieldset-example2" value="-1"/>
-              <label for="radio3">"I think the world sees more than I realize."</label>
+              <input
+                id="radio3"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio3"
+                >"I think the world sees more than I realize."</label
+              >
             </div>
-            <button class="nextQuestionBtn">Next</button>
+            <button class="nextQuestionBtn1">Next</button>
           </fieldset>
+        </div>
 
+        <div class="window questions" id="question-2" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              What do you think your expectations say about who you are?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio4"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio4"
+                >They reveal how far I’ll always fall short.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio5"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio5"
+                >They’re just a part of me, neither good nor bad.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio6"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio6"
+                >They show how much I believe I can achieve.</label
+              >
+            </div>
+            <button class="nextQuestionBtn2">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-3" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              When you overanalyze a moment, are you closer to the truth or
+              further from peace?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio7"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio7"
+                >Further from peace—I never find the answers I want.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio8"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio8">Neither. It’s just how my mind works.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio9"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio9"
+                >Closer to peace—I see things more clearly.</label
+              >
+            </div>
+            <button class="nextQuestionBtn3">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-4" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              Do you believe missing small joys is a mistake, or just the way
+              life is?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio10"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio10"
+                >A mistake, but one I make all the time.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio11"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio11"
+                >It’s just how things are; I can’t notice everything.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio12"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio12"
+                >A mistake, and I’m learning to notice more.</label
+              >
+            </div>
+            <button class="nextQuestionBtn4">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-5" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              If you lost something today, would you know how much it mattered?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio13"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio13">Not until it was gone forever.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio14"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio14">Maybe, but only after some time.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio15"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio15">I think I’d know right away</label>
+            </div>
+            <button class="nextQuestionBtn5">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-6" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              Is it easier to trust your instincts, or to doubt them completely?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio16"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio16">Doubt them—I can’t trust myself.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio17"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio17">It depends on the situation.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio18"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio18">Trust them—they’re usually right.</label>
+            </div>
+            <button class="nextQuestionBtn6">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-7" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              When your inner voice speaks, do you listen, or do you argue with
+              it?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio19"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio19">I argue—I can’t stand what it says.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio20"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio20">I listen sometimes, but not always.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio21"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio21">I try to listen and understand.</label>
+            </div>
+            <button class="nextQuestionBtn7">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-8" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              Have you ever wondered if overthinking is your mind’s way of
+              protecting itself?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio22"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio22"
+                >No, it’s just a curse I can’t control.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio23"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio23">Maybe, but it doesn’t help much.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio24"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio24"
+                >Yes, it’s trying to help me, even if it hurts.</label
+              >
+            </div>
+            <button class="nextQuestionBtn8">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-9" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              Do you believe the harder path is always the right one?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio25"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio25"
+                >No, it’s just punishment for being weak.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio26"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio26"
+                >Not always—sometimes the easy way is fine.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio27"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio27"
+                >Often, the hard path is where I grow most.</label
+              >
+            </div>
+            <button class="nextQuestionBtn9">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-10" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              When was the last time you let yourself enjoy something without
+              questioning why?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio28"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio28">I can’t remember—it’s been too long.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio29"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio29"
+                >Sometimes, but it doesn’t happen often.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio30"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio30">Recently—I’m learning to let go.</label>
+            </div>
+            <button class="nextQuestionBtn10">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-11" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              Are assumptions shortcuts, or are they barriers to the truth?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio31"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio31">Barriers, but I still rely on them.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio32"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio32"
+                >Sometimes they’re shortcuts, sometimes barriers.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio33"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio33"
+                >They’re barriers, and I try to avoid them.</label
+              >
+            </div>
+            <button class="nextQuestionBtn11">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-12" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              What happens when you assume others’ thoughts about you—are they
+              ever kind?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio34"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio34">No, they’re always cruel.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio35"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio35">Sometimes, but I don’t trust them.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio36"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio36">Yes, they can be kind.</label>
+            </div>
+            <button class="nextQuestionBtn12">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-13" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              Does doubt hold you back, or does it keep you safe?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio37"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio37">It holds me back—I feel trapped.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio38"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio38">Both—it’s a double-edged sword.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio39"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio39">It keeps me safe when I need it.</label>
+            </div>
+            <button class="nextQuestionBtn13">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-14" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              Is there value in the easy way, or does it make you weaker in the
+              end?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio40"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio40"
+                >It makes me weaker, but I take it anyway.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio41"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio41"
+                >There’s value, but it depends on the situation.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio42"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio42"
+                >Sometimes it’s okay to take the easy way.</label
+              >
+            </div>
+            <button class="nextQuestionBtn14">Next</button>
+          </fieldset>
+        </div>
+
+        <div class="window questions" id="question-15" style="display: none">
+          <div class="title-bar">
+            <div class="title-bar-text">The Survey.</div>
+          </div>
+
+          <fieldset>
+            <legend id="questionText">
+              Do you think being critical of yourself helps you grow, or just
+              makes you hurt?
+            </legend>
+            <div class="field-start">
+              <input
+                id="radio43"
+                type="radio"
+                name="fieldset-example2"
+                value="-1"
+                checked
+              />
+              <label for="radio43">It just makes me hurt.</label>
+            </div>
+            <div class="field-start">
+              <input
+                id="radio44"
+                type="radio"
+                name="fieldset-example2"
+                value="0"
+              />
+              <label for="radio44"
+                >Both—it’s painful, but it pushes me forward.</label
+              >
+            </div>
+            <div class="field-start">
+              <input
+                id="radio45"
+                type="radio"
+                name="fieldset-example2"
+                value="1"
+              />
+              <label for="radio45"
+                >It helps me grow when I channel it properly.</label
+              >
+            </div>
+            <button class="nextQuestionBtn15">Next</button>
+          </fieldset>
         </div>
       </div>
     </div>
@@ -155,14 +805,15 @@
   <script>
     $(document).ready(function () {
       const bg_audio1 = $("#lobbyMusic").get(0);
-      bg_audio1.volume=.75;
+      bg_audio1.volume = 0.75;
       const bg_audio2 = $("#gameMusic").get(0);
-      const click_effect=$('#click').get(0);
+      const click_effect = $("#click").get(0);
       click_effect.muted = false;
-
+      const start_up = $("#start-up").get(0);
+      start_up.muted = false;
 
       // SPLASH SCREEN
-      $(".clickToEnterSplash").on("click", () => {;
+      $(".clickToEnterSplash").on("click", () => {
         click_effect.play();
         $(".clickToEnterSplash").fadeOut(2000);
         //TO ADD DONT FORGET
@@ -172,12 +823,20 @@
 
       //HOMEPAGE
       $(".mainPlayButton").on("click", () => {
-         click_effect.play();
+        click_effect.play();
         $(".homeScreen").fadeOut(2000);
         //TO ADD DONT FORGET
         bg_audio1.muted = true;
         bg_audio2.muted = false;
         bg_audio2.play();
+        setTimeout(function () {
+          start_up.play();
+        }, 1500);
+      });
+
+      $(".replayButton").on("click", () => {
+        click_effect.play();
+        window.location.reload();
       });
 
       let username_input = "";
@@ -192,7 +851,7 @@
         }
         console.log(username_input);
         setTimeout(function () {
-          $("#offer-popup").fadeIn(10); // Fade in the div over 0.5 seconds
+          $("#offer-popup").fadeIn(10);
         }, 3000);
       });
 
@@ -213,6 +872,166 @@
         }, 3000);
       });
 
+      let counter = 0;
+
+      $(".nextQuestionBtn1").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-1`).hide();
+        $(`#question-2`).show();
+      });
+
+      $(".nextQuestionBtn2").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-2`).hide();
+        $(`#question-3`).show();
+      });
+
+      $(".nextQuestionBtn3").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-3`).hide();
+        $(`#question-4`).show();
+      });
+
+      $(".nextQuestionBtn4").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-4`).hide();
+        $(`#question-5`).show();
+      });
+
+      $(".nextQuestionBtn5").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-5`).hide();
+        $(`#question-6`).show();
+      });
+
+      $(".nextQuestionBtn6").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-6`).hide();
+        $(`#question-7`).show();
+      });
+
+      $(".nextQuestionBtn7").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-7`).hide();
+        $(`#question-8`).show();
+      });
+
+      $(".nextQuestionBtn8").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-8`).hide();
+        $(`#question-9`).show();
+      });
+
+      $(".nextQuestionBtn9").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-9`).hide();
+        $(`#question-10`).show();
+      });
+
+      $(".nextQuestionBtn10").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-10`).hide();
+        $(`#question-11`).show();
+      });
+
+      $(".nextQuestionBtn11").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-11`).hide();
+        $(`#question-12`).show();
+      });
+
+      $(".nextQuestionBtn12").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-12`).hide();
+        $(`#question-13`).show();
+      });
+
+      $(".nextQuestionBtn13").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-13`).hide();
+        $(`#question-14`).show();
+      });
+
+      $(".nextQuestionBtn14").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-14`).hide();
+        $(`#question-15`).show();
+      });
+
+      $(".nextQuestionBtn15").on("click", () => {
+        const selectedValue = parseInt(
+          $("input[name='fieldset-example2']:checked").val()
+        );
+        counter += selectedValue;
+        $(`#question-15`).hide();
+        console.log(counter);
+        const endScreen = $(".endScreen");
+        let endText = $("#endText");
+        console.log(counter);
+
+        if (counter < -2) {
+          //negative ending
+          endScreen.fadeIn(2000);
+          endText.text(
+            `${username_input}, The shadows have won, and they bear your name. Until you break free from these destructive habits, growth will remain elusive. YOU ARE YOUR OWN WORST ENEMY.`
+          );
+        } else if (-3 < counter < 3) {
+          //neutral ending
+          endScreen.fadeIn(2000);
+          endText.text(
+            `${username_input}, You’ve made it this far, balancing between doubt and hope. The journey isn’t over, but there’s still room to grow.`
+          );
+        } else {
+          //positive ending
+          endScreen.fadeIn(2000);
+          endText.text(
+            `${username_input}, You faced the darkness within and found the light. You are no longer your enemy—you are your strength, your hope, your future. The path ahead is yours to walk, brighter than ever before.`
+          );
+        }
+      });
+
       // TYPEWRITER EFFECT
       function sleep(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
@@ -228,7 +1047,7 @@
           el.innerText = curWord.substring(0, i + 1);
           await sleep(sleepTime);
         }
-      }
+      };
       writeLoop1();
     });
   </script>
