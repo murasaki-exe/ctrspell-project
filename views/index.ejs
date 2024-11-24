@@ -8,21 +8,15 @@
     <!-- SPLASHSCREEN -->
     <div class="clickToEnterSplash">
       <div class="initialTextDiv">
-        <h1>クリックどこでもしますよう!</h1>
-        <h3>ｃｌｉｃｋ　　ｔｏ　　ｅｎｔｅｒ～</h3>
-        <img
-          src="/visual-resources/neongif_splashscreen.gif"
-          alt="hewwo"
-          style="width: 150px"
-        />
+        <h1 id="typewriter1">クリックどこでもしますよう!</h1>
       </div>
     </div>
 
     <!-- BG VID -->
-    <video class="bg-vid" muted autoplay loop playsinline>
+    <!-- <video class="bg-vid" muted autoplay loop playsinline>
       <source src="/visual-resources/biopage-bg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
-    </video>
+    </video> -->
 
     <!-- BG MUSIC -->
     <audio id="bg-music" loop muted>
@@ -38,224 +32,7 @@
 
     <!-- MAIN HOME DIV -->
     <div class="mainDiv">
-      <a name="home"></a>
-      <div class="main-home-div">
-        <div id="userDiv">
-          <div class="left">
-            <h1 class="userText">
-              This is <br /><span id="typewriter1"></span
-              ><span id="cursor">|</span>
-            </h1>
-
-            <div class="inline-elements">
-              <div id="resume">
-                <button class="resume-button">r e s u m e</button>
-              </div>
-
-              <p class="descriptionText">Student @ Earl of March SS</p>
-            </div>
-          </div>
-
-          <div class="right">
-            <img
-              src="visual-resources/placeholder-icon.png"
-              alt="image-1"
-              class="mainDivImg"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="iconContainer">
-        ｃｏｎｔａｃｔ　ｍｅ　－　
-        <i
-          class="fab fa-youtube"
-          onclick="openTab('https://www.youtube.com/@murasaki-dayo')"
-        ></i>
-        <i
-          class="fab fa-github"
-          onclick="openTab('https://github.com/murasaki-exe')"
-        ></i>
-        <i
-          class="fab fa-instagram"
-          onclick="openTab('https://instagram.com/murasaki.sys')"
-        ></i>
-        <i
-          class="fab fa-linkedin"
-          onclick="openTab('https://www.linkedin.com/in/alvin-kapoor-754586327/')"
-        ></i>
-      </div>
-
-      <!-- <div
-        id="downArrowDiv"
-        class="animate__animated animate__bounce animate__repeat-3 animate__delay-5s"
-      >
-        <a href="#about" id="downArrow">&#10597;</a>
-      </div> -->
-    </div>
-
-    <!-- ABOUT DIV -->
-    <div class="aboutDiv">
-      <a name="about"></a>
-      <div class="about-me-div">
-        <div id="aboutMeContainer">
-          <div class="left">
-            <div id="aboutMeTitle">
-              <h1 class="userText" id="aboutMeText">
-                <span id="typewriter2"></span
-                ><span id="cursor" style="font-size: 50px">|</span>
-              </h1>
-            </div>
-
-            <div id="aboutMeList">
-              <p style="padding-bottom: 20px; color: white; padding-right: 35px;">
-                Hi, I'm Alvin - currently a high schooler, programmer, future
-                cybersec indulgent and avid watcher of football (soccer)!
-                Currently, I'm in Earl of March Secondary High School, hoping to
-                study Computer Science and studying for a cybersecurity
-                certificate!
-                <br /><br />
-                I have a passion for learning and exploring new avenues, which
-                do not just limit to technical aspects! Such as, I'm currently
-                learning Japanese! I love food, gymming, art and video games! If
-                I don't go to a food tour all around the world before I die, I'm
-                gonna be real mad >:&#40;
-              </p>
-            </div>
-
-            <!-- <div id="aboutMeInfo">
-              <h1><u>Languages and Software</u></h1>
-              <p id="aboutMeInfo-p">
-                Well-versed in Python, Javascript - know Java, HTML, CSS - and
-                learning the basics of cybersecurity!
-              </p>
-            </div> -->
-          </div>
-
-          <div class="right">
-            <!-- <div class="weatherContainer">
-              <p style="padding-right: 0; padding-left: 0;">Ottawa</p>
-
-              <div class="weatherDiv">
-                <h2 id="temperature">&mdash;C</h2>
-              </div>
-            </div> -->
-            <div class="img-container">
-              <img src="visual-resources/placeholder-icon.png" class="tom-image" alt="">
-              <div class="bottom-images">
-                <img src="visual-resources/placeholder-icon.png" class="bottom-image" alt="">
-                <img src="visual-resources/placeholder-icon.png" class="bottom-image" alt="">
-              </div>
-            </div>
-
-            
-            
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECTS DIV -->
-    <div class="projectsDiv">
-      <a name="projects"></a>
-      <div class="projects-div">
-        <div id="projectsMainDiv">
-          <div id="projectsTitle">
-            <h1 class="userText" id="projectsText" style="padding-left: 16px">
-              <span>Projects</span>
-            </h1>
-          </div>
-
-          <div class="projectsContainer" id="projectsContainer">
-            <div class="projectCard" id="project1" onclick="openTab('https://www.youtube.com/')">
-              <h2 class="projectNames">Project 1</h2>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                odit aliquid maxime provident distinctio veniam error minus
-                nesciunt! Praesentium, explicabo!
-              </p>
-
-              <div class="softwareUsed">
-                <span class="software">Python</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">Flask</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">HTML-CSS</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">MySQL</span>
-              </div>
-
-              <!-- <div class="projectImage">
-                <img src="visual-resources/noise.png" alt="placeholder-icon" />
-              </div> -->
-            </div>
-
-            <div class="projectCard" id="project1">
-              <h2 class="projectNames">Project 2</h2>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                odit aliquid maxime provident distinctio veniam error minus
-                nesciunt! Praesentium, explicabo!
-              </p>
-
-              <div class="softwareUsed">
-                <span class="software">Python</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">Flask</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">HTML-CSS</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">MySQL</span>
-              </div>
-
-              <div class="projectImage">
-                <img src="visual-resources/noise.png" alt="placeholder-icon" />
-              </div>
-            </div>
-
-            <div class="projectCard" id="project1">
-              <h2 class="projectNames">Project 3</h2>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                odit aliquid maxime provident distinctio veniam error minus
-                nesciunt! Praesentium, explicabo!
-              </p>
-
-              <div class="softwareUsed">
-                <span class="software">Python</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">Flask</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">HTML-CSS</span>
-                &nbsp; &nbsp; &nbsp;
-                <span class="software">MySQL</span>
-              </div>
-
-              <div class="projectImage">
-                <img src="visual-resources/noise.png" alt="placeholder-icon" />
-              </div>
-            </div>
-            <!-- <div class="projectCard">
-              <div class="icon">
-                <img
-                  src="visual-resources/placeholder-icon.png"
-                  alt="Project Icon"
-                />
-              </div>
-              <div class="content">
-                <h2>Project Title</h2>
-                <p>
-                  Project description goes here. It should explain what the
-                  project is about.
-                </p>
-              </div>
-            </div> -->
-          </div>
-        </div>
-      </div>
+      
     </div>
   </body>
 
@@ -352,19 +129,18 @@
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
-    const home_names = ["Alvin Kapoor", "Alvin (⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄"];
+    const home_names = [];
 
-    const about_me_terms = ["私のついて", "About me"];
+    const about_me_terms = [];
 
     const el = document.getElementById("typewriter1");
-    const el2 = document.getElementById("typewriter2");
 
     let sleepTime = 100;
 
     let curPhraseIndex1 = 0;
     let curPhraseIndex2 = 0;
 
-    const writeLoop1 = async () => {
+    /* const writeLoop1 = async () => {
       while (true) {
         let curWord = home_names[curPhraseIndex1];
 
@@ -373,7 +149,7 @@
           await sleep(sleepTime);
         }
 
-        await sleep(sleepTime * 10);
+        await sleep(  sleepTime * 10);
 
         for (let i = curWord.length; i > 0; i--) {
           el.innerText = curWord.substring(0, i - 1);
@@ -388,7 +164,7 @@
           curPhraseIndex1++;
         }
       }
-    };
+    }; */
 
     const writeLoop2 = async () => {
       while (true) {
