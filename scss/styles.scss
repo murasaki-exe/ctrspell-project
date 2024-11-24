@@ -150,7 +150,68 @@ ul {
   font-size: 1.5rem;
   text-align: center;
   letter-spacing: 2px;
+  line-height: 50px ;
   padding-bottom: 20px;
   font-family: "Cutive", sans-serif;
 }
 
+#screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #008080;
+}
+
+#scan,
+#bezel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+#scan {
+  opacity: 66%;
+}
+
+#content {
+  font-family: VT323;
+  font-size: 32px;
+}
+
+#loginPage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+}
+
+#windows-98-logo{
+  width: 48px;
+  height: 40px;
+}
+
+#windows-98-logo-text{
+  margin-left: 15px;
+  width: 125px;
+  height: 40px;
+}
+
+.field-end{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.field-end button:first-child{
+  margin-right: 7.5px;
+}
+
+.field-start{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}

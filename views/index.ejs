@@ -27,15 +27,16 @@
     </video> -->
 
     <!-- BG MUSIC -->
-    <audio id="lobbyMusic" muted>
-      <source src="/visual-resources/sound" type="audio/mpeg" />
-      your browser ain browsing bruh audio aint working
-    </audio>
 
-    <audio id="gameMusic" loop muted>
+    <!-- <audio id="lobbyMusic" muted>
       <source src="/visual-resources/sound" type="audio/mpeg" />
       your browser ain browsing bruh audio aint working
-    </audio>
+    </audio> -->
+
+    <!-- <audio id="gameMusic" loop muted>
+      <source src="/visual-resources/sound" type="audio/mpeg" />
+      your browser ain browsing bruh audio aint working
+    </audio> -->
 
     <!-- MUTE BTN -->
 
@@ -46,42 +47,72 @@
     <div class="mainDiv"></div>
 
     <div id="screen">
-      <img src ="/visual-resources/scanlines.png" id = "scan">
-      <img src ="/visual-resources/bezel.png" id = "bezel">
+      <img src="/visual-resources/scanlines.png" id="scan" />
+      <img src="/visual-resources/bezel.png" id="bezel" />
+
       <div id="content">
-        Hello there, how are you?
+
+        <div class="window" id="loginPage">
+          <div class="title-bar">
+            <div class="title-bar-text">
+              Enter Password
+            </div>
+
+            <div class="title-bar-controls">
+              <button aria-label="Close"></button>
+            </div>
+          </div>
+
+          <div class="window-body">
+
+            <section class="field-start">
+              <img id="windows-98-logo" src="/visual-resources/windows-98-logo.png" alt="windows-98-logo">
+              <img id="windows-98-logo-text" src="/visual-resources/windows-98-logo-text.png" alt="windows-98-logo">
+            </section>
+            
+            <section class="field-row">
+              <label for="text1">Username</label>
+              <input id="text1" type="text">
+            </section>
+
+            <section class="field-row">
+              <label for="text2">Password</label>
+              <input id="text2" type="password" style="margin-left: 8px;">
+            </section>
+            
+            <section class="field-end">
+              <button>OK</button>
+              <button>Cancel</button>
+            </section>
+          </div>
+        </div>
       </div>
     </div>
-
-    
   </body>
 
   <script>
     // SPLASH SCREEN
-    let clickCountSplash = 0;
     $(".clickToEnterSplash").on("click", () => {
-      clickCountSplash++;
-      if (clickCountSplash == 2) {
-        $(".clickToEnterSplash").fadeOut(2000);
-        const bg_audio1 = $("#lobbyMusic").get(0);
+      $(".clickToEnterSplash").fadeOut(2000);
+      //TO ADD DONT FORGET
+      /* const bg_audio1 = $("#lobbyMusic").get(0);
         bg_audio1.muted = false;
-        bg_audio1.play();
-      }
+        bg_audio1.play(); */
     });
 
     //HOMEPAGE
     $(".mainPlayButton").on("click", () => {
       $(".homeScreen").fadeOut(2000);
-      bg_audio1.muted = true;
+      //TO ADD DONT FORGET
+      /* bg_audio1.muted = true;
       const bg_audio2 = $("#gameMusic",get(0))
       bg_audio2.muted = false;
-      bg.audio2.play();
-    })
+      bg.audio2.play(); */
+    });
 
     //MUSIC
 
     /* bg_audio.volume = 0.13; */
-
 
     //ARROW
     /* const downArrow = docuement.getElementById("downArrowDiv")
@@ -152,13 +183,14 @@
 
     const el = document.getElementById("typewriter1");
 
-    let sleepTime = 100;
+    let sleepTime = 50;
 
     let curPhraseIndex1 = 0;
     let curPhraseIndex2 = 0;
 
     const writeLoop1 = async () => {
-      let curWord = "ummm.... how did i get here... what happened?";
+      let curWord =
+        '"Criticism is the disapproval of people, not for having faults, but for having faults different from your own."';
 
       for (let i = 0; i < curWord.length; i++) {
         el.innerText = curWord.substring(0, i + 1);
