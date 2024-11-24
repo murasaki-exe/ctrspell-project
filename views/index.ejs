@@ -8,7 +8,7 @@
     <!-- SPLASHSCREEN -->
     <div class="clickToEnterSplash">
       <div class="initialTextDiv">
-        <h1 id="typewriter1">Long in</h1>
+        <h3 id="typewriter1"></h3>
       </div>
     </div>
 
@@ -31,9 +31,7 @@
     <div class="cursor-outline" data-cursor-outline></div>
 
     <!-- MAIN HOME DIV -->
-    <div class="mainDiv">
-      
-    </div>
+    <div class="mainDiv"></div>
   </body>
 
   <script>
@@ -140,31 +138,29 @@
     let curPhraseIndex1 = 0;
     let curPhraseIndex2 = 0;
 
-    /* const writeLoop1 = async () => {
-      while (true) {
-        let curWord = home_names[curPhraseIndex1];
+    const writeLoop1 = async () => {
+      let curWord = "ummm....how did i get here...what happened?";
 
-        for (let i = 0; i < curWord.length; i++) {
-          el.innerText = curWord.substring(0, i + 1);
-          await sleep(sleepTime);
-        }
+      for (let i = 0; i < curWord.length; i++) {
+        el.innerText = curWord.substring(0, i + 1);
+        await sleep(sleepTime);
+      }
 
-        await sleep(  sleepTime * 10);
+      /* await sleep(  sleepTime * 10);
 
         for (let i = curWord.length; i > 0; i--) {
           el.innerText = curWord.substring(0, i - 1);
           await sleep(sleepTime);
-        }
+        } */
 
-        await sleep(sleepTime * 5);
+      /* await sleep(sleepTime * 5);
 
         if (curPhraseIndex1 === home_names.length - 1) {
           curPhraseIndex1 = 0;
         } else {
           curPhraseIndex1++;
-        }
-      }
-    }; */
+        } */
+    };
 
     const writeLoop2 = async () => {
       while (true) {
