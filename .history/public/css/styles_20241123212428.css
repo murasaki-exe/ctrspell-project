@@ -1,0 +1,17 @@
+/* Error: expected "}".
+ *     ,
+ * 109 |   text-shadow: 2px 2px 3px rgb(174, 222, 102), 0 0 1em rgb(174, 222, 102), 0 0 0.2em rgb(174, 222, 102); 
+ *     |                                                                                                          ^
+ *     '
+ *   scss\styles.scss 109:106  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "}".\a     \2577 \a 109 \2502    text-shadow: 2px 2px 3px rgb(174, 222, 102), 0 0 1em rgb(174, 222, 102), 0 0 0.2em rgb(174, 222, 102); \d\a     \2502                                                                                                           ^\a     \2575 \a   scss\\styles.scss 109:106  root stylesheet';
+}
